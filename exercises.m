@@ -61,15 +61,35 @@ dot2 = cross2(1) * w1 + cross2(2) * w2 + cross2(3) * w3;
 simplify(dot1 - dot2)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% (6) Let a 2D (infinite) line pass through two points P 0 and P 1 . Given any arbitrary point P in the plane,
-% show that the perp product: (P – P 0 ) ⊥ (P 1 – P 0 ) will be positive for points P on one side of the line,
+% (6) Let a 2D (infinite) line pass through two points P0 and P1. Given any arbitrary point P in the plane,
+% show that the perp product: (P – P0) ⊥ (P1 – P0) will be positive for points P on one side of the line,
 % and negative for points on the other side of the line.
+P = sym('P_%d', [1 2]);
+P0 = sym('P0_%d', [1 2]);
+P1 = sym('P1_%d', [1 2]);
+
+v1 = P - P0;
+v2 = P1 - P0;
+
+perp = v1(1) * v2(2) - v1(2) * v2(1);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (7) Using the previous exercise, develop a test for whether a finite segment between points Q 0 and Q 1
-% crosses (i.e. intersects) the (infinite) line through P 0 and P 1 . Use this to develop another test for
+% crosses (i.e. intersects) the (infinite) line through P0 and P1.
+
+% idea:
+% if (perp(Q0 - P0, P0 - P1) > 0 && perp(Q1 - P0, P0 - P1) < 0 or
+%   perp(Q0 - P0, P0 - P1) < 0 && perp(Q1 - P0, P0 - P1) > 0) {
+%   return true
+% } else {
+%   return false
+% }
+
+% Use this to develop another test for
 % whether the finite segment Q 0 Q 1 intersects with the finite segment P 0 P 1 without actually computing
 % the point of intersection
+
+% idea: inverse the test, check if P intersects the infinite segment of Q
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (8) Let a 3D (infinite) line L be defined by two points P 0 = (x 0 , y 0 , z 0 ) and P 1 = (x 1 , y 1 , z 1 ) on it,
