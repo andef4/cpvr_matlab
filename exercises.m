@@ -53,6 +53,13 @@ simplify(dot)
 % equation: u · (v × w) = (u × v) · w is always true. Show, using geometric reasoning, that it is equal to
 % the volume of the 3D parallelepiped defined by edge vectors u, v, and w starting at the origin.
 
+syms u1 u2 u3 v1 v2 v3 w1 w2 w3;
+cross1 = [v2 * w3 - v3 * w2; v3 * w1 - v1 * w3; v1 * w2 - v2 * w1];
+cross2 = [u2 * v3 - u3 * v2; u3 * v1 - u1 * v3; u1 * v2 - u2 * v1];
+dot1 = cross1(1) * u1 + cross1(2) * u2 + cross1(3) * u3;
+dot2 = cross2(1) * w1 + cross2(2) * w2 + cross2(3) * w3;
+simplify(dot1 - dot2)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % (6) Let a 2D (infinite) line pass through two points P 0 and P 1 . Given any arbitrary point P in the plane,
 % show that the perp product: (P – P 0 ) ⊥ (P 1 – P 0 ) will be positive for points P on one side of the line,
