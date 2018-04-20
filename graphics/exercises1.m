@@ -100,16 +100,30 @@ fprintf('Extercise 7\n');
 
 % idea: inverse the test, check if P intersects the infinite segment of Q
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% (8) Let a 3D (infinite) line L be defined by two points P 0 = (x 0 , y 0 , z 0 ) and P 1 = (x 1 , y 1 , z 1 ) on it,
-% and let P = (x, y, z) be an arbitrary point. Put ∆x = (x 1 – x 0 ), ∆y = (y 1 – y 0 ), ∆z = (z 1 – z 0 );
-% and ∆r = (x – x 0 ), ∆s = (y – y 0 ), ∆t = (z – z 0 ).
-% Show that the distance d(P, L) from P to the line L is given by the formula:
-% d ( P , L ) = ( ∆ z ∆ s − ∆ y ∆ t ) 2 + ( ∆ x ∆ t − ∆ z ∆ r ) 2 + ( ∆ y ∆ r − ∆ x ∆ s ) 2
-                                          % ( ∆ x 2 + ∆ y 2 + ∆ z 2 )
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% (9) In the 2D plane, let a and b be two fixed perpendicular vectors, and let v be any arbitrary vector.
-% Show that v can be decomposed into the sum of two vectors in the directions of a and b. That is,
-% show that the linear equation v = αa + βb can be solved by finding explicit formulas for the
-% coefficients α and β in terms of a , b , and v. [Hint: use the dot product.]
++%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
++% (12) Paralellism stays
++
++% Let be two segment σ 1 = (x 11 ; y 11 ; 1) − (x 12 ; y 12 ; 1) and
++% σ 2 = (x 21 ; y 21 ; 1) − (x 22 ; y 22 ; 1). The two
++% segments are defined as parallel. If one apply a scaling transformations to these two segments,
++% their images σ ∗ 1 and σ ∗ 2 remain parallel. Prove this affirmation.
++
++
++syms x11  x12 y11 y12 x21 x22 y21 y22 a b;
++
++% paralism defined as the two vectors have the same slope
++% (x11 - x12) / (y11 - y12) = (x21 - x22) / (y21 - y22)
++
++% scaling = [a 0
++%            0 b]
++
++% every x values is scaled by a, every y value scaled by b:
++% (a*x11 - a*x12) / (b*y11 - b*y12) = (a*x21 - a*x22) / (b*y21 - b*y22)
++
++% by dividing by a und multiplying by a on both sides, we get the original
++% formula:
++simplify((a*x11 - a*x12) / (b*y11 - b*y12) / a * b)
++simplify((a*x21 - a*x22) / (b*y21 - b*y22) / a * b)
+
+
